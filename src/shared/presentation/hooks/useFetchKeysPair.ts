@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect } from 'react'
-import { GetKeysPairUseCase } from '@/shared/application/use-cases/GetKeysPair'
-import { FetchRSAKeysGateway } from '@/shared/infrastructure/gateways/FetchRSAKeysGateway'
-import { useKeyPairStore } from '@/shared/presentation/state/useKeyPairState'
+import { GetKeysPairUseCase } from '@/shared/application/use-cases/GetKeysPair';
+import { FetchRSAKeysGateway } from '@/shared/infrastructure/gateways/FetchRSAKeysGateway';
+import { useKeyPairStore } from '@/shared/presentation/state/useKeyPairState';
 
 export const useFetchKeyPair = () => {
   const setKeyPair = useKeyPairStore(state => state.setKeyPair)
