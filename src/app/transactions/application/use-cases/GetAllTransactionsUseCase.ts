@@ -14,7 +14,7 @@ export class GetAllTransactionsUseCase {
 
     return encrypted.data.map((tx) => ({
       id: tx.id,
-      amount: Number(this.decryptor.decrypt(tx.amount)),
+      amount: Number(this.decryptor.decrypt(tx.amount.toString())),
       currency: this.decryptor.decrypt(tx.currency),
       customer_name: this.decryptor.decrypt(tx.customer_name),
       customer_email: this.decryptor.decrypt(tx.customer_email),

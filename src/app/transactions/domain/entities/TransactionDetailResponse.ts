@@ -1,8 +1,8 @@
 import { Transaction } from "./Transaction"
 
 
-export interface TransactionResponse {
+export interface TransactionDetailResponse {
   requestId: string
   success: boolean
-  data: Transaction[]
+  data: Transaction
 }

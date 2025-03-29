@@ -1,6 +1,7 @@
 import { TransactionsGateway } from "@/app/transactions/domain/gateways/TransactionsGateway";
 import { TransactionCreateRequest } from "@/app/transactions/domain/entities/TransactionCreateRequest";
 import { TransactionResponse } from "@/app/transactions/domain/entities/TransactionResponse";
+import { TransactionDetailResponse } from "../../domain/entities/TransactionDetailResponse";
 
 export class FetchTransactionsGateway implements TransactionsGateway {
   private readonly baseUrl: string;
@@ -34,7 +35,7 @@ export class FetchTransactionsGateway implements TransactionsGateway {
     return await res.json();
   }
 
-  async getById(id: string): Promise<TransactionResponse> {
+  async getById(id: string): Promise<TransactionDetailResponse> {
     const res = await fetch(`${this.baseUrl}/transactions/${id}`, {
       credentials: 'include'
     });

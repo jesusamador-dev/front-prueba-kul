@@ -1,14 +1,20 @@
-import { create } from "zustand"
-import { Transaction } from "@/app/transactions/domain/entities/Transaction"
+import { create } from 'zustand';
+import { Transaction } from '@/app/transactions/domain/entities/Transaction';
 
-interface TransactionState {
-  transactions: Transaction[]
-  setTransactions: (txs: Transaction[]) => void
-  clearTransactions: () => void
+interface TransactionStore {
+  transactions: Transaction[];
+  transaction: Transaction | null;
+  selectedTransactionId: string | null;
+  setTransactions: (txs: Transaction[]) => void;
+  setTransaction: (tx: Transaction) => void;
+  setSelectedTransactionId: (id: string) => void;
 }
 
-export const useTransactionStore = create<TransactionState>()((set) => ({
+export const useTransactionStore = create<TransactionStore>((set) => ({
   transactions: [],
+  transaction: null,
+  selectedTransactionId: null,
   setTransactions: (txs) => set({ transactions: txs }),
-  clearTransactions: () => set({ transactions: [] }),
-}))
+  setTransaction: (tx) => set({ transaction: tx }),
+  setSelectedTransactionId: (id) => set({ selectedTransactionId: id }),
+}));
